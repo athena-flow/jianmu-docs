@@ -17,6 +17,7 @@
   font-weight: bold;
   color: #FFFFFF;
   letter-spacing: 1px;
+  height: 100%;
 }
 
 .nav-bar-title::before {
