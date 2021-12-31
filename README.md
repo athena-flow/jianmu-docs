@@ -1,7 +1,7 @@
-# 建木项目文档
+# 建木CI文档
 
 #### 介绍
-jianmu-docs是建木团队开源的建木自动化集成平台相关文档说明，通过该文档库维护官方文档更新，详情见：https://docs.jianmu.dev/guide/。
+建木CI文档是建木团队开源的建木CI相关文档说明，通过该文档库维护官方文档更新，详情见：[https://docs.jianmu.dev](https://docs.jianmu.dev)。
 
 #### 文档安装
 

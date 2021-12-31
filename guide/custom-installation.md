@@ -55,7 +55,7 @@ yarn build
 
 可以参考官方镜像使用的部署方式，使用的Web服务器为Nginx
 
-Nginx配置，可参考[nginx-http.conf](https://gitee.com/jianmu-dev/jianmu-ui-image/blob/master/nginx-http.conf)
+Nginx配置，可参考[nginx-http.conf](https://gitee.com/jianmu-dev/jianmu-ci-server/blob/master/ui/nginx-http.conf)
 
 ### 后端部署
 

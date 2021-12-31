@@ -8,7 +8,7 @@
 
 建议操作系统：Ubuntu 21.04（macOS Monterey）
 建议配置：
-* CPU：2颗
+* CPU：2C
 * 内存：8GB
 * 磁盘：100GB
 
@@ -65,9 +65,9 @@ kubectl apply -f kubernetes.yaml
 
 #### 设置企业微信空间
 
-1. 创建企业微信用户空间，点击秘钥管理，填写命名空间和描述如下：
+1. 创建企业微信用户空间，点击密钥管理，填写命名空间和描述如下：
 ![create_space](./images/wecom_space.png)
-2. 进入命名空间，创建秘钥，填写名称和值，参考如下
+2. 进入命名空间，创建密钥，填写名称和值，参考如下
 ![create_bot_webhook](./images/wecom_bot_webhook.png)
 
 #### 创建并执行第一个项目

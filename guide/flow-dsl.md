@@ -20,7 +20,7 @@ workflow:
 
 ```
   git_clone:
-    type: git_clone:1.0.0
+    type: git_clone:1.2.0
 ```
 
 节点使用type字段来指定节点类型，节点类型由类型唯一标识`ref`与类型版本组成
@@ -69,7 +69,7 @@ workflow:
     targets:
       - git_clone
   git_clone:
-    type: git_clone:1.0.0
+    type: git_clone:1.2.0
     sources:
       - start
     targets:
@@ -94,7 +94,7 @@ workflow:
 
 ```
   git_clone:
-    type: git_clone:1.0.0
+    type: git_clone:1.2.0
     sources:
       - start
     targets:
@@ -102,9 +102,8 @@ workflow:
     param:
       ref: refs/heads/master
       remote_url: https://gitee.com/jianmu-hub/dev-tools.git
-      netrc_machine: gitee.com
-      netrc_username: ((gitee.username))
-      netrc_password: ((gitee.password))
+      username: ((gitee.username))
+      password: ((gitee.password))
 ```
 
 `输入参数`和`输出参数`也可以使用参数方式引用，详情参见[`参数章节`](vars.md)

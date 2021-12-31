@@ -20,24 +20,41 @@ groups:
 **示例**
 ```
 groups:
-  - name: 
+  - name: 默认分组
     projects:
       # 批量导入
       - /batch_import.yml
-      # 建木api网关
-      - /api-gw/cicd.yml
-      # 建木ci
-      - /ci/server_cicd.yml
-      - /ci/ui_cicd.yml
-      # 开发工具
-      - /dev-tools/docker_image_builder.yml
-      # 建木hub
+  - name: 建木CI
+    projects:
+      - /ci/all_ci.yml
+      - /ci/server_cd.yml
+      - /ci/ui_cd.yml
+  - name: 建木Hub
+    projects:
+      # 建木API网关
+      - /api-gw/cd.yml
+      - /api-gw/ci.yml
+      # 建木SSO
+      - /sso/v1_ci.yml
+      - /sso/v2_cicd.yml
+      # 建木Hub
       - /hub/server_cicd.yml
       - /hub/ui_cicd.yml
-      # 官网
-      - /official-site/cicd.yml
-      # ssl证书
-      - /ssl/cert_cd.yml
+      # 建木短信
+      - /sms/cicd.yml
+  - name: 建木官网
+    projects:
+      - /official-site/wap_cdn_cicd.yml
+      - /official-site/web_cdn_cicd.yml
+  - name: 建木文档
+    projects:
+      - /docs/v1_cicd.yml
+      - /docs/v2_cicd.yml
+  - name: SSL证书
+    projects:
+      - /ssl/jianmu.dev_cd.yml
+      - /ssl/*.jianmu.dev_cd.yml
+      - /ssl/*.test.jianmu.dev_cd.yml
 ```
 
 ### 2. 使用
@@ -51,15 +68,14 @@ name: 批量导入项目
 
 pipeline:
   git_clone:
-    type: git_clone:1.1.1
+    type: git_clone:1.2.0
     param:
       remote_url: https://gitee.com/jianmu-dev/jianmu-ci-dsl.git
       ref: refs/heads/master
-      netrc_machine: gitee.com
-      netrc_username: ((gitee.username))
-      netrc_password: ((gitee.password))
+      username: ((gitee.username))
+      password: ((gitee.password))
   sync_project_group:
-    type: sync_project_group:1.0.0
+    type: sync_project_group:2.0.0
     param:
       ci_url: https://ci.jianmu.run
       ci_username: ((xxx.xxx))

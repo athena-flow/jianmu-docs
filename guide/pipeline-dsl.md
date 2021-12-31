@@ -20,7 +20,7 @@ pipeline:
 
 ```
   git_clone:
-    type: git_clone:1.0.0
+    type: git_clone:1.2.0
 ```
 
 节点使用type字段来指定节点类型，节点类型由节点定义唯一标识`ref`与节点定义版本组成
@@ -59,10 +59,10 @@ pipeline:
 
 ```
   git_clone:
-    type: git_clone:1.0.0
+    type: git_clone:1.2.0
     param:
       ref: refs/heads/master
-      remote_url: https://gitee.com/jianmu-runners/jianmu-runner-node-definition-version-publisher.git
+      remote_url: https://gitee.com/jianmu-runners/jianmu-runner-hub.git
   hub_publish:
     type: hub_publish:1.0.0
     param:

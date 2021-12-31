@@ -124,7 +124,7 @@ workflow:
     targets:
       - git_clone
   git_clone:
-    type: git_clone:1.0.1
+    type: git_clone:1.2.0
     sources:
       - start
     targets:
@@ -132,9 +132,8 @@ workflow:
     param:
       ref: refs/heads/master
       remote_url: https://gitee.com/jianmu-runners/jianmu-runner-redis.git
-      netrc_machine: gitee.com
-      netrc_username: ((gitee.username))
-      netrc_password: ((gitee.password))
+      username: ((gitee.username))
+      password: ((gitee.password))
   hub_publish:
     type: hub_publish:1.0.1
     sources:
@@ -167,13 +166,12 @@ description: 这是一个创建节点定义版本的管道定义样例
 
 pipeline:
   git_clone:
-    type: git_clone:1.0.1
+    type: git_clone:1.2.0
     param:
       remote_url: https://gitee.com/jianmu-runners/jianmu-runner-redis.git
       ref: refs/heads/master
-      netrc_machine: gitee.com
-      netrc_username: ((gitee.username))
-      netrc_password: ((gitee.password))
+      username: ((gitee.username))
+      password: ((gitee.password))
   hub_publish:
     type: hub_publish:1.0.1
     param:

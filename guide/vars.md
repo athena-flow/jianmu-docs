@@ -51,9 +51,9 @@ trigger:
 
 pipeline:
   clone:
-    type: git_clone:1.0.0
+    type: git_clone:1.2.0
     param:
-      remote_url: (`https://gitee.com/jianmu-dev/jianmu-ci-ui.git`)
+      remote_url: https://gitee.com/jianmu-dev/jianmu-ci-ui.git
       ref: ${trigger.gitlab_ref}
 ```
 
@@ -67,13 +67,12 @@ description: 发布hub-server镜像
 
 pipeline:
   git_clone:
-    type: git_clone:1.0.0
+    type: git_clone:1.2.0
     param:
       remote_url: https://gitee.com/jianmu-hub/jianmu-hub-server.git
       ref: refs/heads/master
-      netrc_machine: gitee.com
-      netrc_username: ((gitee.username))
-      netrc_password: ((gitee.password))
+      username: ((gitee.username))
+      password: ((gitee.password))
   maven_jib_build:
     type: maven_build:1.2.0-jdk11
     param:
@@ -100,13 +99,12 @@ workflow:
       - start
     targets:
       - maven_jib_build
-    type: git_clone:1.0.0
+    type: git_clone:1.2.0
     param:
       remote_url: https://gitee.com/jianmu-hub/jianmu-hub-server.git
       ref: refs/heads/master
-      netrc_machine: gitee.com
-      netrc_username: ((gitee.username))
-      netrc_password: ((gitee.password))
+      username: ((gitee.username))
+      password: ((gitee.password))
   maven_jib_build:
     sources:
       - git_clone
