@@ -129,3 +129,21 @@ trigger:
 表达式`$.body.json.user[0].age`的结果是`3`
 
 *更高阶的用法和具体语法规范可以参考[这里](https://goessner.net/articles/JsonPath/)*
+
+**补充**
+
+为方便用户提取触发器参数，在非数组对象中也可以使用JsonPath的过滤表达式，如：
+```
+trigger:
+  type: webhook
+  param:
+     - name: token1
+      type: STRING
+      exp: $.body.json[?(@.token =~ /^ywi6.*$/)].token
+    - name: token2
+      type: STRING
+      exp: $.body.json[?(@.token =~ /^ywi6.*$/i)].token
+```
+表达式`$.body.json[?(@.token =~ /^ywi6.*$/)].token`的结果是`空`
+
+表达式`$.body.json[?(@.token =~ /^ywi6.*$/i)].token`的结果是`yWi6XOJQ2VQ9BKSUnlK9jTiHY`
