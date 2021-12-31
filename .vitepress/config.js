@@ -1,20 +1,35 @@
+const {name, version} = require('../package.json');
+
+const checkCdn = () => {
+  console.log(process.env);
+  const {npm_config_argv} = process.env;
+  const {original} = JSON.parse(npm_config_argv);
+
+  return original.includes('build') &&
+    original.includes('--mode') &&
+    original.includes('cdn')
+};
+
+const base = checkCdn() ? `/${name}/${version}` : '';
+
 module.exports = {
   title: '持续集成平台',
   description: '建木持续集成平台文档',
   lang: 'zh-CN',
+  base,
   head: [
     // 改变title的图标
     [
       'link',
       {
         rel: 'icon',
-        href: '/favicon.ico',
+        href: `${base}/favicon.ico`,
       },
     ],
     [
       'script',
       {
-        src: "/refactor.js",
+        src: `${base}/refactor.js`,
       }
     ],
     // 百度统计
@@ -29,9 +44,9 @@ module.exports = {
   themeConfig: {
     // 侧边导航
     sidebar: [{
-        text: '首页',
-        link: '/guide/index',
-      },
+      text: '首页',
+      link: '/guide/index',
+    },
       {
         text: '快速开始',
         link: '/guide/quick-start',
@@ -67,24 +82,24 @@ module.exports = {
       {
         text: '高级主题',
         children: [{
-            text: '参数',
-            link: '/guide/vars',
+          text: '参数',
+          link: '/guide/vars',
+        }, {
+          text: "表达式",
+          link: "/guide/expression"
+        }, {
+          text: '内置节点',
+          children: [{
+            text: "开始/结束节点",
+            link: "/guide/start-end-node"
           }, {
-            text: "表达式",
-            link: "/guide/expression"
+            text: "网关节点",
+            link: "/guide/gateway"
           }, {
-            text: '内置节点',
-            children: [{
-              text: "开始/结束节点",
-              link: "/guide/start-end-node"
-            }, {
-              text: "网关节点",
-              link: "/guide/gateway"
-            }, {
-              text: "Shell节点",
-              link: "/guide/shell-node"
-            }]
-          },
+            text: "Shell节点",
+            link: "/guide/shell-node"
+          }]
+        },
           // {
           //     text: '运维',
           //     link: '/guide/operation'
@@ -92,7 +107,7 @@ module.exports = {
           {
             text: '自定义节点',
             link: '/guide/custom-node'
-          },{
+          }, {
             text: '一键还原项目',
             link: '/guide/project-group'
           }, {
