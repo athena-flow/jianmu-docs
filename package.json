@@ -1,6 +1,6 @@
 {
   "name": "jianmu-docs",
-  "version": "0.0.1-test",
+  "version": "2.0-test",
   "repository": "https://gitee.com/jianmu-dev/jianmu-docs.git",
   "scripts": {
     "dev": "vitepress dev",
