@@ -19,8 +19,7 @@
 
     const navBarTitle = document.getElementsByClassName('nav-bar-title')[0];
     if (navBarTitle) {
-      navBarTitle.href = 'index.html'
-      navBarTitle.target = '_parent';
+      navBarTitle.href = 'index.html';
       navBarTitle.innerHTML = ''
     }
 
