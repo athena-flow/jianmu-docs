@@ -17,6 +17,13 @@
     }
     console.debug('new message: ', message);
 
+    const navBarTitle = document.getElementsByClassName('nav-bar-title')[0];
+    if (navBarTitle) {
+      navBarTitle.href = 'index.html'
+      navBarTitle.target = '_parent';
+      navBarTitle.innerHTML = ''
+    }
+
     window.parent.postMessage(message, '*');
   }, 500);
 
