@@ -91,3 +91,15 @@ EMBEDDED_DOCKER-WORKER_DOCKER-HOST: unix:///var/run/docker.sock
 JIANMU_API_ADMINUSER: admin
 JIANMU_API_ADMINPASSWD: 123456
 ```
+
+**执行记录系统配置**
+
+统一配置所有项目执行记录的显示条数和是否自动清理，`v2.1.2`版本开始支持
+
+```
+JIANMU_GLOBAL_RECORD_MAX: 20
+JIANMU_GLOBAL_RECORD_AUTO-CLEAN: 'true'
+```
+`JIANMU_GLOBAL_RECORD_MAX`为20，表示项目执行记录只显示最后20条，默认为9999
+![](./images/execution_record.png)
+`JIANMU_GLOBAL_RECORD_AUTO-CLEAN`为true，表示项目启动时，自动删除所有项目最后20条执行记录之前的历史数据；默认为false，表示不自动删除
