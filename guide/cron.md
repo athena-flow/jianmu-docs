@@ -7,7 +7,7 @@
 ```
 trigger:
   type: cron
-  schedule: * * * * * ? *
+  schedule: 0 0/30 * * * ?
 ```
 * type: 此处固定填`cron`，必填
 * schedule: Cron表达式，必填
