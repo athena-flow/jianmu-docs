@@ -11,8 +11,10 @@
 ```yaml
 global:
   enabled:
-    # 是否启用，默认值为true，表示启用
+    # 是否启用
+    # 默认值为true，表示启用
     value: true | false
-    # 是否在页面可修改，默认值为false，表示只能通过DSL更新
+    # 是否在页面可启用/禁用项目
+    # 默认值为false，表示只能通过修改DSL的value值启用/禁用项目
     mutable: true | false
 ```
