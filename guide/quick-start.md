@@ -77,7 +77,7 @@ kubectl apply -f kubernetes.yaml
 2. 点击git图标，URL输入`https://gitee.com/jianmu-dev/jianmu-docs.git`
 3. 填写分支为`master`
 4. 关闭下方的认证开关，点击下一步
-5. 选择`hello_world.yml`，点击保存
+5. 选择`hello-world.yml`，点击保存
 
 #### 实现效果
 
