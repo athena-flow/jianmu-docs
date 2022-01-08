@@ -54,6 +54,9 @@ module.exports = {
       {
         text: '如何使用',
         children: [{
+          text: '全局配置',
+          link: '/guide/global',
+        }, {
           text: '触发器',
           children: [{
             text: 'Webhook',
