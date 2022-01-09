@@ -194,6 +194,6 @@ pipeline:
 
 | 关键字                            | 说明                                                                                            |
 | -------------------------------- | ---------------------------------------------------------------------------------------------- |
-| inner.execution_status           | 节点任务执行状态，可在下游节点通过`${xxx.inner.execution_status}`调用，`v2.1.2`版本开始支持。取值范围为：<br/> EXECUTION_SUCCEEDED: 执行成功 <br/> EXECUTION_FAILED: 执行失败 <br/> DISPATCH_FAILED: 分发失败 |
+| inner.execution_status           | 节点任务执行状态，可在下游节点通过`${xxx.inner.execution_status}`调用，`v2.2.0（待发布）`版本开始支持。取值范围为：<br/> EXECUTION_SUCCEEDED: 执行成功 <br/> EXECUTION_FAILED: 执行失败 <br/> DISPATCH_FAILED: 分发失败 |
 
 
