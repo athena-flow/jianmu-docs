@@ -192,8 +192,12 @@ pipeline:
 
 ### 4. 内置输出参数
 
+`v2.2.0（待发布）`版本开始支持。
+
 | 关键字                            | 说明                                                                                            |
 | -------------------------------- | ---------------------------------------------------------------------------------------------- |
-| inner.execution_status           | 节点任务执行状态，可在下游节点通过`${xxx.inner.execution_status}`调用，`v2.2.0（待发布）`版本开始支持。取值范围为：<br/> EXECUTION_SUCCEEDED: 执行成功 <br/> EXECUTION_FAILED: 执行失败 <br/> DISPATCH_FAILED: 分发失败 |
+| inner.execution_status           | 节点任务执行状态，可在下游节点通过`${xxx.inner.execution_status}`调用，取值范围为：<br/> EXECUTION_SUCCEEDED: 执行成功 <br/> EXECUTION_FAILED: 执行失败 <br/> DISPATCH_FAILED: 分发失败 |
+| inner.start_time                 | 节点任务开始时间，可在下游节点通过`${xxx.inner.start_time}`调用 |
+| inner.end_time                   | 节点任务结束时间，可在下游节点通过`${xxx.inner.end_time}`调用 |
 
 
