@@ -21,6 +21,7 @@
 建木持续集成平台是一个典型的前后端分离架构，但是为了方便开发部署前后端代码都在同一个代码库中
 
 ### 编译工具要求
+
 * Java 11.0.9或更高
 * Maven 3.8.1或更高
 * NodeJS 16.4或更高
@@ -35,9 +36,11 @@ cd jianmu-ci-server
 
 mvn package
 ```
+
 编译打包成功完成后在项目目录下`./api/target`中会存在`jianmu-ci-server.jar`的可执行Fat Jar
 
 **编译前端代码**
+
 ```
 cd jianmu-ci-server/ui
 
@@ -45,11 +48,12 @@ yarn install
 
 yarn build
 ```
+
 成功后项目目录下的`./ui/dist`目录下是编译好的前端文件
 
 ## 如何部署
 
-### 前端部署  
+### 前端部署
 
 前端代码可以部署到任意一个支持静态文件的Web服务器下。
 
@@ -70,15 +74,19 @@ Mysql版本需要8.0以上
 可用的配置项参考[application.yml](https://gitee.com/jianmu-dev/jianmu-main/blob/master/api/src/main/resources/application.yml)文件
 
 **数据库配置：**
+
 ```
 SPRING_DATASOURCE_URL: jdbc:mysql://jianmu-mysql:3306/jianmu?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
 SPRING_DATASOURCE_USERNAME: root
 SPRING_DATASOURCE_PASSWORD: 123456
 ```
+
 **Docker宿主机地址配置：**
+
 ```
 EMBEDDED_DOCKER-WORKER_DOCKER-HOST: unix:///var/run/docker.sock
 ```
+
 该配置项为worker调用的docker守护进程api地址
 
 可配置为Unix socket(unix:///var/run/docker.sock)或Tcp Socket(tcp://127.0.0.1:2375)形式
@@ -94,12 +102,15 @@ JIANMU_API_ADMINPASSWD: 123456
 
 **执行记录系统配置**
 
-统一配置所有项目执行记录的显示条数和是否自动清理，`v2.2.0`版本开始支持
+统一配置所有项目执行记录的显示条数和是否自动清理
+
+> 版本说明：`v2.2.0`开始支持
 
 ```
 JIANMU_GLOBAL_RECORD_MAX: 20
 JIANMU_GLOBAL_RECORD_AUTO-CLEAN: 'true'
 ```
+
 `JIANMU_GLOBAL_RECORD_MAX`为20，表示项目执行记录只显示最后20条，默认为9999
 ![](./images/execution_record.png)
 `JIANMU_GLOBAL_RECORD_AUTO-CLEAN`为true，表示项目启动时，自动删除所有项目最后20条执行记录之前的历史数据；默认为false，表示不自动删除
