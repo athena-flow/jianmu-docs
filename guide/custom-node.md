@@ -141,7 +141,7 @@ workflow:
     targets:
       - end
     param:
-      hub_url: https://api.jianmu.run
+      hub_url: https://api.jianmuhub.com
       dsl_file_path: ${git_clone.git_path}/dsl/export.yml
       hub_api_ak: ((xxx.xxx))
       hub_api_sk: ((xxx.xxx))
@@ -175,7 +175,7 @@ pipeline:
   hub_publish:
     type: hub_publish:1.0.1
     param:
-      hub_url: https://api.jianmu.run
+      hub_url: https://api.jianmuhub.com
       dsl_file_path: ${git_clone.git_path}/dsl/export.yml
       hub_api_ak: ((xxx.xxx))
       hub_api_sk: ((xxx.xxx))
