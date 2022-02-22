@@ -70,3 +70,14 @@ pipeline:
       - echo $CCC
 ```
 
+### 使用内置输入参数
+在script中可以直接使用[内置输入参数](custom-node.md#_3-内置输入参数)
+
+**示例：**
+```
+shell-node:
+  image: alpine:3.13.6
+  script:
+    - cd $JM_SHARE_DIR
+    - ls
+```
