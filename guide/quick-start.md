@@ -19,7 +19,7 @@
 * Docker-Compose 1.29.2以上，[官方安装手册](https://docs.docker.com/compose/install/#install-compose)
 * Kubernetes 1.18以上, [官方安装手册](https://kubernetes.io/docs/tasks/tools/)
 
-## 建木安装
+## 安装建木
 
 ### docker-compose部署
 
