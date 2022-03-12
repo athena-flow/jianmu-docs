@@ -22,10 +22,11 @@ trigger:
     * name: 参数名称，必填
     * type: 参数类型，支持类型：STRING、NUMBER、BOOL、SECRET，必填
     * exp: 提取参数表达式，必填，*详见[提取规则](#触发器参数提取规则)*
+  > 注意事项：`v2.2.4`开始，若type为STRING时，提取的值将被自动trim处理，解决yml语法带来的转义冲突
 * auth: 认证鉴权，非必填
     * token: Webhook请求携带的认证鉴权数据，如：请求头中的Authorization、Token等，`auth`存在时必填，支持[运算表达式](expression.md#运算表达式)和[字符串模版](expression.md#字符串模版)
     * value: 用于校验`token`值，相同则验证成功，必须是密钥类型，`auth`存在时必填
-* only: 匹配规则，结果为 true 时触发流程，可以引用`全局参数`、`触发器参数`，非必填。*详见[运算表达式](expression.md)*
+* only: 匹配规则，结果为 true 时触发流程，当前只可引用`触发器参数`，暂不支持引用`全局参数`，非必填。*详见[运算表达式](expression.md)*
 
 **示例**
 ```
