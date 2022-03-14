@@ -23,11 +23,25 @@ global:
 ```
 
 可简写成如下，此时mutable为默认值false：
-
 ```yaml
 global:
   # 是否启用
   # 默认值为true，表示启用
   # 值为false，表示禁用，此时webhook/cron/手动等操作均无法触发项目执行
   enabled: true | false
+```
+
+### 并发
+
+`concurrent`可控制当前流程能否并发执行，默认为`false`，表示不能并发执行
+
+> 版本说明：`v2.3.0`开始支持
+
+语法：
+```yaml
+global:
+  # 是否启用
+  # 默认值为true，表示启用
+  # 值为false，表示禁用，此时webhook/cron/手动等操作均无法触发项目并发执行
+  concurrent: true | false
 ```
