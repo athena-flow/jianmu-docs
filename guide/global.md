@@ -40,8 +40,8 @@ global:
 语法：
 ```yaml
 global:
-  # 是否启用
-  # 默认值为true，表示启用
-  # 值为false，表示禁用，此时webhook/cron/手动等操作均无法触发项目并发执行
+  # 是否并发执行
+  # 默认值为false，表示不能并发执行，此时webhook/cron/手动等操作均无法触发项目并发执行
+  # 值为true，表示可并发执行
   concurrent: true | false
 ```
