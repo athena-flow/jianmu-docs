@@ -12,6 +12,11 @@ trigger:
     - name:  xxx
       type: STRING
       exp: $.xxx.xxx
+      # 表示是否必填，默认值为false，从v2.3.0版本开始支持
+      required: true | false
+      # 表示默认值为空字符串，required为false且参数值为null时生效，从v2.3.0版本开始支持
+      # 若不指定，STRING类型为””、NUMBER类型为0、BOOL类型为false
+      default: ""
   auth: 
     token: ${trigger.xxx}
     value: ((xxx.xxx))
@@ -22,7 +27,11 @@ trigger:
     * name: 参数名称，必填
     * type: 参数类型，支持类型：STRING、NUMBER、BOOL、SECRET，必填
     * exp: 提取参数表达式，必填，*详见[提取规则](#触发器参数提取规则)*
-  > 注意事项：`v2.2.4`开始，若type为STRING时，提取的值将被自动trim处理，解决yml语法带来的转义冲突
+    * required: 是否必填，默认值为false。如果值为true且参数值为null时，webhook请求会报错
+    * default: 默认值，required为false且参数值为null时生效。若不指定，STRING类型为""、NUMBER类型为0、BOOL类型为false
+  > 注意事项：
+  > 1. `v2.2.4`开始，若type为STRING时，提取的值将被自动trim处理，解决yml语法带来的转义冲突
+  > 2. `v2.3.0`开始，支持`required`和`default`配置
 * auth: 认证鉴权，非必填
     * token: Webhook请求携带的认证鉴权数据，如：请求头中的Authorization、Token等，`auth`存在时必填，支持[运算表达式](expression.md#运算表达式)和[字符串模版](expression.md#字符串模版)
     * value: 用于校验`token`值，相同则验证成功，必须是密钥类型，`auth`存在时必填
