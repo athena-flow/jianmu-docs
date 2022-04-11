@@ -65,12 +65,12 @@ trigger:
 
 根据提取的位置不同，提取规则如下：
 
-* Header：$.header.xxx
-* Query：$.query.xxx
+* Header：$.header.xxx，`http header`
+* Query：$.query.xxx，`http querystring`
 * Body：
-  * JSON: $.body.json.xxx
-  * Form表单：$.body.form.xxx
-  * Text: $.body.text
+  * JSON: $.body.json.xxx，`http body，Content-Type为application/json`
+  * Form表单：$.body.form.xxx，`http body，Content-Type为application/x-www-form-urlencoded`
+  * Text: $.body.text，`http body，Content-Type为text/plain`
 
 **Webhook请求参数示例**
 ```

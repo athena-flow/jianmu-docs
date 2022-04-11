@@ -63,9 +63,11 @@ kubectl apply -f kubernetes.yaml
 * 新建一个测试群
 * 测试群添加一个机器人，并获取机器人的webhook，形如：`https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=06de918a-fd35-45b7-b2e6-cff28371fd5d`
 
+添加流程可参考[gitee相关文档](https://gitee.com/help/articles/4296#article-header0)
 #### 设置企业微信空间
 
 1. 创建企业微信用户空间，点击密钥管理，填写命名空间和描述如下：
+![key_management](./images/key_management.png)
 ![create_space](./images/wecom_space.png)
 2. 进入命名空间，创建密钥，填写名称和值，参考如下
 ![create_bot_webhook](./images/wecom_bot_webhook.png)
