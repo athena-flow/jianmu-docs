@@ -189,6 +189,7 @@ pipeline:
 | 关键字                            | 说明                                                                                            |
 | -------------------------------- | ---------------------------------------------------------------------------------------------- |
 | share_dir                        | 共享目录，容器中可通过 JM_SHARE_DIR 使用                                                            |
+| trigger_id                       | 触发器ID，容器中可通过 JM_TRIGGER_ID 使用，`v2.3.0`版本开始支持                                        |
 
 ### 4. 内置输出参数
 
@@ -198,6 +199,7 @@ pipeline:
 | -------------------------------- | ---------------------------------------------------------------------------------------------- |
 | inner.execution_status           | 节点任务执行状态，可在下游节点通过`${xxx.inner.execution_status}`调用，取值范围为：<br/> EXECUTION_SUCCEEDED: 执行成功 <br/> EXECUTION_FAILED: 执行失败 <br/> DISPATCH_FAILED: 分发失败 |
 | inner.start_time                 | 节点任务开始时间，可在下游节点通过`${xxx.inner.start_time}`调用 |
+| inner.end_time                   | 节点任务结束时间，可在下游节点通过`${xxx.inner.end_time}`调用 |
 | inner.end_time                   | 节点任务结束时间，可在下游节点通过`${xxx.inner.end_time}`调用 |
 
 
