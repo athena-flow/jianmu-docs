@@ -186,10 +186,26 @@ pipeline:
 
 ### 3. 内置输入参数
 
-| 关键字                            | 说明                                                                                            |
-| -------------------------------- | ---------------------------------------------------------------------------------------------- |
-| share_dir                        | 共享目录，容器中可通过 JM_SHARE_DIR 使用                                                            |
-| trigger_id                       | 触发器ID，容器中可通过 JM_TRIGGER_ID 使用，`v2.3.0`版本开始支持                                        |
+| 关键字                               | 说明                                                                                              |
+|-----------------------------------|-------------------------------------------------------------------------------------------------|
+| share_dir                         | 共享目录，容器中可通过 JM_SHARE_DIR 使用                                                                     |
+| trigger_id                        | 触发器ID，容器中可通过 JM_TRIGGER_ID 使用，`v2.3.0`版本开始支持                                                    |
+| worker_id                         | 执行器ID，容器中可通过 JM_WORKER_ID 使用，`v2.3.1`版本开始支持                                                     |
+| worker_type                       | 执行器类型，容器中可通过 JM_WORKER_TYPE 使用，`v2.3.1`版本开始支持                                                   |
+| project_id                        | 项目ID，容器中可通过 JM_PROJECT_ID 使用，`v2.3.1`版本开始支持                                                     |
+| instance_id                       | 执行记录(实例)ID，容器中可通过 JM_INSTANCE_ID 使用，`v2.3.1`版本开始支持                                              |
+| instance_trigger_type             | 执行记录触发类型，容器中可通过 JM_INSTANCE_TRIGGER_TYPE 使用，`v2.3.1`版本开始支持,取值范围为: CRON-定时触发 MANUAL-手动触发 WEBHOOK-webhook触发 |
+| instance_workflow_ref             | 执行记录触发定义的引用，容器中可通过 JM_INSTANCE_WORKFLOW_REF 使用，`v2.3.1`版本开始支持                                   |
+| instance_workflow_version         | 执行记录触发定义的版本，容器中可通过 JM_INSTANCE_WORKFLOW_VERSION 使用，`v2.3.1`版本开始支持                               |
+| instance_create_time              | 执行记录创建时间，容器中可通过 JM_INSTANCE_CREATE_TIME 使用，`v2.3.1`版本开始支持                                       |
+| instance_start_time               | 执行记录创建开始时间，容器中可通过 JM_INSTANCE_START_TIME 使用，`v2.3.1`版本开始支持                                      |
+| instance_suspended_time           | 执行记录创建挂起时间，容器中可通过 JM_INSTANCE_SUSPENDED_TIME 使用，`v2.3.1`版本开始支持                                  |
+| instance_serial_no                | 执行记录内部序号，容器中可通过 JM_INSTANCE_SERIAL_NO 使用，`v2.3.1`版本开始支持                                         |
+| instance_run_mode                 | 执行记录运行模式，容器中可通过 JM_INSTANCE_RUN_MODE 使用，`v2.3.1`版本开始支持                                          |
+| instance_status                   | 执行记录当前状态，容器中可通过 JM_INSTANCE_STATUS 使用，`v2.3.1`版本开始支持                                            |
+| def_key                           | 执行记录定义key，容器中可通过 JM_DEF_KEY 使用，`v2.3.1`版本开始支持                                                   |
+| web_request_id                    | 节点执行失败时间重试唯一标识ID，容器中可通过 JM_WEB_REQUEST_ID 使用，`v2.3.1`版本开始支持                                     |
+
 
 ### 4. 内置输出参数
 
