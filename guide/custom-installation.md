@@ -5,14 +5,27 @@
 请参考[快速开始](quick-start.md)章节
 
 ## 简要系统架构说明
+**v.2.5.0之前：**
 
 由于建木持续集成平台在设计思路上遵循简单性原则，尽量减少用户的部署成本，降低用户的使用与维护门槛。
 
-因此，运行建木只需要一个核心的Java后端服务和依赖的Mysql数据库。
+因此，运行建木需要一个核心的Java后端服务和依赖的Mysql数据库。
 
-另外，由于建木是一个纯粹的前后端分离项目，因此前端代码需要一个独立的Web服务器来进行部署。
+另外，由于建木是一个纯粹的前后端分离项目，因此前端需要一个独立的Web服务器来进行部署。
 
 当然，因为建木的任务节点当前都是以容器形式运行在docker上，所以也需要准备一个docker的宿主环境。
+
+**v2.5.0之后：**
+
+自v2.5.0开始，为扩展业务需求，建木CI将内置Worker分离出来了，用户可自行配置Worker。
+
+Worker是必需的，若没有配置Worker，任务将无法执行。
+
+因此，运行建木除了需要一个核心的Java后端服务以及其依赖的Mysql数据库，还需要一个Worker。
+
+另外，由于建木是一个纯粹的前后端分离项目，因此前端需要一个独立的Web服务器来进行部署。
+
+当然，因为建木的任务节点当前都是以容器形式运行在docker上，所以需要为Worker准备一个安装了docker的宿主环境。
 
 具体的架构设计请参考[这里](https://gitee.com/jianmu-dev/jianmu-architecture-as-code)
 
@@ -38,6 +51,19 @@ mvn package
 ```
 
 编译打包成功完成后在项目目录下`./api/target`中会存在`jianmu-ci-server.jar`的可执行Fat Jar
+
+**编译Worker Docker**
+```
+git clone https://gitee.com/jianmu-workers/jianmu-worker-docker.git
+
+cd jianmu-worker-docker
+
+# 若无法下载依赖，可配置代理：go env -w GOPROXY=https://goproxy.cn
+go mod download
+
+go build
+```
+成功后项目目录下的`./jianmu-worker-docker`是编译好的Worker Docker可执行文件
 
 **编译前端代码**
 
@@ -81,18 +107,6 @@ SPRING_DATASOURCE_USERNAME: root
 SPRING_DATASOURCE_PASSWORD: 123456
 ```
 
-**Docker宿主机地址配置：**
-
-```
-EMBEDDED_DOCKER-WORKER_DOCKER-HOST: unix:///var/run/docker.sock
-```
-
-该配置项为worker调用的docker守护进程api地址
-
-可配置为Unix socket(unix:///var/run/docker.sock)或Tcp Socket(tcp://127.0.0.1:2375)形式
-
-具体根据要连接的Docker Engine配置而来，可参考[Docker官方文档](https://docs.docker.com/config/daemon/)
-
 **平台用户名与密码配置**
 
 ```
@@ -114,3 +128,27 @@ JIANMU_GLOBAL_RECORD_AUTO-CLEAN: 'true'
 `JIANMU_GLOBAL_RECORD_MAX`为20，表示项目执行记录只显示最后20条，默认为9999
 ![](./images/execution_record.png)
 `JIANMU_GLOBAL_RECORD_AUTO-CLEAN`为true，表示项目启动时，自动删除所有项目最后20条执行记录之前的历史数据；默认为false，表示不自动删除
+
+**触发队列配置**
+> 版本说明：`v2.5.0`开始支持
+```
+JIANMU_TRIGGER-QUEUE-MAX: 5
+```
+
+`JIANMU_TRIGGER-QUEUE-MAX`为5，表示串行执行时，排队执行的流程实例最多为5个，超过5个时会报错：
+![img.png](./images/trigger_queue_max.png)
+
+### Worker Docker部署
+> 版本说明：`v2.5.0`之后支持独立Worker配置
+
+Worker Docker启动需要定义环境变量，可以自定义一个环境变量文件（如local.env），文件配置如下：
+```
+JIANMU_SRV_ADDRESS: http://ci-server:8081
+JIANMU_SRV_SECRET: worker-secret
+JIANMU_WORKER_ID: worker1
+```
+启动：
+```
+# 在项目根目录执行该命令，lolcal.env为自定义环境变量文件的路径
+./jianmu-worker-docker daemon ./local.env
+```
